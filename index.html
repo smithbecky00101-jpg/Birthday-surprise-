@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Dr. Chizubem Benson! 🎉</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- BACKGROUND ANIMATION CANVASES -->
+  <canvas id="particles-canvas"></canvas>
+  <canvas id="confetti-canvas"></canvas>
+  <div id="floating-bg"></div>
+
+  <!-- BACKGROUND MUSIC -->
+  <audio id="bg-music" src="a-cheerful-ukulele-waltz.mp3" preload="auto" loop></audio>
+
+  <!-- 1. LOADING SCREEN -->
+  <div id="loading-screen">
+    <div class="loader-content">
+      <div class="loader-spinner">🎁</div>
+      <h2>Preparing Something Special...</h2>
+      <div class="progress-bar-container">
+        <div id="loader-bar" class="progress-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN WRAPPER -->
+  <main id="main-content" class="hidden">
+
+    <!-- 2. HERO / WELCOME LANDING -->
+    <section class="section-container hero-section">
+      <div class="hero-badge">✨ Special Celebration ✨</div>
+      <h1 class="hero-title">Happy Birthday,<br><span class="highlight-name">Dr. Chizubem Benson</span>! 🎉</h1>
+      <p class="hero-subtitle">A special experience crafted just for you to celebrate your incredible day.</p>
+      
+      <button id="start-btn" class="glow-button">
+        Tap to Begin 🎁
+      </button>
+    </section>
+
+    <!-- WRAPPER FOR FLOW CONTENT (REVEALED ON TAP) -->
+    <div id="experience-wrapper" class="flow-container">
+
+      <!-- 3. GIFT BOX SURPRISE -->
+      <section class="section-container" id="gift-section">
+        <h2 class="section-title">A Surprise For You 📦</h2>
+        <p class="section-subtitle">Tap the gift box to open it!</p>
+
+        <div class="gift-box-container">
+          <div id="gift-box" class="gift-box">
+            <div class="gift-lid"></div>
+            <div class="gift-ribbon-v"></div>
+            <div class="gift-ribbon-h"></div>
+            <div class="gift-bow">🎁</div>
+          </div>
+        </div>
+
+        <div id="gift-message" class="card gift-card hidden-card">
+          <h3>🎉 Cheers to You!</h3>
+          <p>Wishing you endless health, peace, prosperity, and joy on this milestone day!</p>
+        </div>
+      </section>
+
+      <!-- 4. PHOTO MEMORIES GALLERY -->
+      <section class="section-container" id="gallery-section">
+        <h2 class="section-title">Precious Memories 📸</h2>
+        <p class="section-subtitle">Swipe or tap to view full size</p>
+        
+        <div class="gallery-scroll-wrapper">
+          <div class="gallery-grid">
+            <!-- Photo 1 -->
+            <div class="polaroid" data-src="1790612887678.jpg" data-caption="A True Role Model & Guide 🌟">
+              <div class="polaroid-img-wrapper">
+                <img src="1790612887678.jpg" alt="Memory 1" loading="lazy">
+              </div>
+              <p class="caption">A True Role Model & Guide 🌟</p>
+            </div>
+
+            <!-- Photo 2 -->
+            <div class="polaroid" data-src="1790612893969.jpg" data-caption="Endless Wisdom & Great Laughs 🍻">
+              <div class="polaroid-img-wrapper">
+                <img src="1790612893969.jpg" alt="Memory 2" loading="lazy">
+              </div>
+              <p class="caption">Endless Wisdom & Great Laughs 🍻</p>
+            </div>
+
+            <!-- Photo 3 -->
+            <div class="polaroid" data-src="1790631109028.jpg" data-caption="To the Coolest Uncle Ever 😎">
+              <div class="polaroid-img-wrapper">
+                <img src="1790631109028.jpg" alt="Memory 3" loading="lazy">
+              </div>
+              <p class="caption">To the Coolest Uncle Ever 😎</p>
+            </div>
+
+            <!-- Photo 4 -->
+            <div class="polaroid" data-src="1790631166650.jpg" data-caption="Cheers to More Blessings & Success 🥂">
+              <div class="polaroid-img-wrapper">
+                <img src="1790631166650.jpg" alt="Memory 4" loading="lazy">
+              </div>
+              <p class="caption">Cheers to More Blessings & Success 🥂</p>
+            </div>
+
+            <!-- Photo 5 -->
+            <div class="polaroid" data-src="1790631240495.jpg" data-caption="Forever Grateful For Having An Uncle Like You ❤️">
+              <div class="polaroid-img-wrapper">
+                <img src="1790631240495.jpg" alt="Memory 5" loading="lazy">
+              </div>
+              <p class="caption">Forever Grateful For Having An Uncle Like You ❤️</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. TYPEWRITER MESSAGE CARD (SCROLL TRIGGERED) -->
+      <section class="section-container" id="message-section">
+        <div class="letter-card">
+          <div class="letter-header">
+            <span>💌 A Little Message For You</span>
+          </div>
+          <div class="letter-body">
+            <p id="typewriter-text" class="typewriter-content"></p>
+            <span class="cursor">|</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. BIRTHDAY CAKE & CANDLES -->
+      <section class="section-container" id="cake-section">
+        <h2 class="section-title">Make a Wish 🎂</h2>
+        <p class="section-subtitle">Tap the cake to blow out the candles!</p>
+
+        <div id="cake" class="cake-container">
+          <div class="candles-wrapper">
+            <div class="candle"><div class="flame"></div></div>
+            <div class="candle"><div class="flame"></div></div>
+            <div class="candle"><div class="flame"></div></div>
+          </div>
+          <div class="cake-top"></div>
+          <div class="cake-middle"></div>
+          <div class="cake-bottom"></div>
+        </div>
+
+        <p id="wish-status" class="wish-text hidden-text">✨ Your wish has been sent to the stars! May all your dreams come true! ✨</p>
+      </section>
+
+      <!-- 7. MUSIC PLAYER CONTROLS -->
+      <section class="section-container" id="music-section">
+        <div class="music-card">
+          <div class="disc-wrapper">
+            <div id="disc-icon" class="disc">🎵</div>
+          </div>
+          <div class="music-info">
+            <h4>Background Music</h4>
+            <p>A Cheerful Ukulele Waltz</p>
+          </div>
+          <div class="player-controls">
+            <button id="play-pause-btn" class="icon-btn">▶️</button>
+            <input type="range" id="seek-bar" value="0" max="100">
+            <span id="curr-time">0:00</span> / <span id="dur-time">0:00</span>
+          </div>
+          <div class="volume-control">
+            <span>🔊</span>
+            <input type="range" id="volume-bar" value="80" max="100">
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. COUNTDOWN TIMER -->
+      <section class="section-container" id="countdown-section">
+        <h2 class="section-title">Birthday Countdown ⏳</h2>
+        <div class="countdown-grid">
+          <div class="time-card"><span id="cd-days">00</span><p>Days</p></div>
+          <div class="time-card"><span id="cd-hours">00</span><p>Hours</p></div>
+          <div class="time-card"><span id="cd-minutes">00</span><p>Minutes</p></div>
+          <div class="time-card"><span id="cd-seconds">00</span><p>Seconds</p></div>
+        </div>
+        <div id="birthday-alert" class="hidden celebration-banner">
+          🎉 IT'S PARTY TIME! HAPPY BIRTHDAY! 🎉
+        </div>
+      </section>
+
+      <!-- 9. REPLAY FOOTER -->
+      <footer class="footer-section">
+        <button id="replay-btn" class="secondary-button">🔄 Replay Experience</button>
+        <p class="footer-credit">Made with ❤️ for Dr. Chizubem Benson</p>
+      </footer>
+
+    </div> <!-- END FLOW CONTAINER -->
+
+  </main>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightbox" class="lightbox-modal">
+    <span id="lightbox-close" class="close-btn">&times;</span>
+    <img id="lightbox-img" src="" alt="Full size preview">
+    <p id="lightbox-caption"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
